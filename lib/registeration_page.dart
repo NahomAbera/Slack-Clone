@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'login_page.dart';
+import 'home_page.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -233,8 +234,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
               : SizedBox(),
           SizedBox(height: 20.0),
           ElevatedButton(
-            onPressed: _register,
-            child: Text('Register', style: TextStyle(color: Colors.white),),
+            child: Text(
+              'Register',
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: () {
+              Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
             style: ElevatedButton.styleFrom(
               primary: Color(0xFF4A154B),
             ),
