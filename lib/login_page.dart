@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'registeration_page.dart';
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -110,8 +111,16 @@ class _LoginPageState extends State<LoginPage> {
           ),
           SizedBox(height: 20.0),
           ElevatedButton(
-            onPressed: _login,
-            child: Text('Login', style: TextStyle(color: Colors.white),),
+            
+            child: _isLoading
+                ? CircularProgressIndicator()
+                : Text('Login'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
             style: ElevatedButton.styleFrom(
               primary: Color(0xFF4A154B), 
             ),
