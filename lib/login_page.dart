@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Image.asset(
               'assets/logo.png', 
               height: 200.0,
-              width: 400.0,
+              width: 500.0,
             ),
           ),
           Expanded(
@@ -40,11 +40,11 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Text(
-                      'Welcome to Slack',
+                      'Welcome Back!',
                       style: TextStyle(
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black, 
+                        color: Color(0XFF4A154B),
                       ),
                       textAlign: TextAlign.center,
                     ),

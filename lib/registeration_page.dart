@@ -49,11 +49,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Text(
-                      'Welcome to Slack',
+                      'Welcome!',
                       style: TextStyle(
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color(0XFF4A154B),
                       ),
                       textAlign: TextAlign.center,
                     ),
