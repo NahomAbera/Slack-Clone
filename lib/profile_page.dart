@@ -71,11 +71,11 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF4A154B), // Slack's primary color
+        backgroundColor: Color(0xFF4A154B), 
         title: SizedBox(
           height: AppBar().preferredSize.height,
           child: Image.asset(
-            'assets/logo2.png', // Change to your logo file name
+            'assets/logo2.png', 
             fit: BoxFit.contain,
           ),
         ),

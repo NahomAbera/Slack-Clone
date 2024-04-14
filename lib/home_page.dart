@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 }
                 final channelsDocs = channelsSnapshot.data!.docs;
-                if (true) {
+                if (channelsDocs.isEmpty) {
                   return Center(
                     child: Text("You're not currently a member of any workspace"),
                   );
