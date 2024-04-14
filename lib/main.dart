@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'login_page.dart'; // Import your login page file
+import 'login_page.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My App',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple, // Set your app's primary color
+        primarySwatch: Colors.deepPurple, 
       ),
       home: LoginPage(), // Start with the login page
     );
