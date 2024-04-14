@@ -29,10 +29,7 @@ class _CreateWorkspacePageState extends State<CreateWorkspacePage> {
   void _createWorkspace(BuildContext context) async {
     String name = _nameController.text.trim();
     String description = _descriptionController.text.trim();
-
-    // Validate input
     if (name.isEmpty || description.isEmpty || _pickedImage == null) {
-      // Show error message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Please fill in all fields and upload an image.'),
@@ -43,14 +40,10 @@ class _CreateWorkspacePageState extends State<CreateWorkspacePage> {
     }
 
     try {
-      // Upload image to Firebase Storage
       String imageUrl = '';
       if (_pickedImage != null) {
-        // Create a reference to the location you want to upload to in Firebase Storage
         final ref = FirebaseStorage.instance.ref().child('channel_images').child(DateTime.now().toString() + '.jpg');
-        // Upload file to Firebase Storage
         await ref.putFile(_pickedImage!);
-        // Get the download URL from Firebase Storage
         imageUrl = await ref.getDownloadURL();
       }
 
@@ -59,15 +52,10 @@ class _CreateWorkspacePageState extends State<CreateWorkspacePage> {
         'name': name,
         'description': description,
         'channelPicture': imageUrl,
-        // You can add more fields as needed
       });
-
-      // Navigate back to home page after creating workspace
       Navigator.pop(context);
     } catch (error) {
-      // Handle error
       print('Error creating workspace: $error');
-      // Show error message or handle error
     }
   }
 
@@ -75,7 +63,7 @@ class _CreateWorkspacePageState extends State<CreateWorkspacePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF4A154B), // Slack's primary color
+        backgroundColor: Color(0xFF4A154B), 
         title: Image.asset(
           'assets/logo2.png',
           height: AppBar().preferredSize.height * 0.8,
@@ -112,7 +100,7 @@ class _CreateWorkspacePageState extends State<CreateWorkspacePage> {
             SizedBox(height: 20.0),
             TextField(
               controller: _descriptionController,
-              maxLines: 5, // Set maxLines to make the box bigger
+              maxLines: 5, 
               decoration: InputDecoration(
                 labelText: 'Enter Workspace Description',
                 filled: true,
@@ -159,7 +147,7 @@ class _CreateWorkspacePageState extends State<CreateWorkspacePage> {
               onPressed: () => _createWorkspace(context),
               child: Text('Create'),
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF4A154B), // Slack's primary color
+                primary: Color(0xFF4A154B), 
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               ),
             ),

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:slackclone/login_page.dart';
 import 'package:slackclone/create_workspace.dart';
+import 'package:slackclone/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF4A154B), // Slack's primary color
+        backgroundColor: Color(0xFF4A154B), 
         title: SizedBox(
           height: AppBar().preferredSize.height,
           child: Image.asset(
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: Text('+ Workspace'),
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF4A154B), // Slack's primary color
+                primary: Color(0xFF4A154B), 
                 onPrimary: Colors.white,
               ),
             ),
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 }
                 final channelsDocs = channelsSnapshot.data!.docs;
-                if (channelsDocs.isEmpty) {
+                if (true) {
                   return Center(
                     child: Text("You're not currently a member of any workspace"),
                   );
@@ -83,10 +84,8 @@ class _HomePageState extends State<HomePage> {
                 return ListView.builder(
                   itemCount: channelsDocs.length,
                   itemBuilder: (ctx, index) {
-                    // Build the list of channels here
                     return ListTile(
                       title: Text(channelsDocs[index]['name']),
-                      // Add onTap action to navigate to channel page
                     );
                   },
                 );
@@ -101,7 +100,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFF4A154B), // Slack's primary color
+                color: Color(0xFF4A154B), 
               ),
               child: Image.asset(
                 'assets/logo2.png',
@@ -113,14 +112,16 @@ class _HomePageState extends State<HomePage> {
               title: Text('Profile'),
               onTap: () {
                 Navigator.pop(context);
-                // Navigate to profile page
+
               },
             ),
             ListTile(
               title: Text('Settings'),
               onTap: () {
-                Navigator.pop(context);
-                // Navigate to settings page
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()));
+
               },
             ),
           ],

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple, 
       ),
-      home: LoginPage(), // Start with the login page
+      home: LoginPage(), 
     );
   }
 }
